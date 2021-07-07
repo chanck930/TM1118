@@ -1,0 +1,74 @@
+<!doctype html>
+<HTML>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.mi
+n.css" rel="stylesheet" integrity="sha384-
+wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
+"anonymous">
+        <title>IC2140's Assignment 1</title>
+    </head>
+    <body>
+        <h1 class="display-3 p-3 mb-2 bg-danger text-white">IC2140's Inventory</h1>
+        {% for entry in entries %}
+        <article>
+            <span class="d-block p-2 bg-primary text-white">Inventory ID: {{ entry.inventory }}</span>
+            <div class="p-3 mb-2 bg-secondary text-white">
+            location:{{ entry.loc }}<br>
+            End User: {{ entry.endUser }}<br>
+            Description: {{ entry.description }}<br>
+            Brand: {{ entry.brand }}<br>
+            Unit Price: ${{ entry.unitPrice }}<br>
+            Acq. Date: {{ entry.acqDate }}<br>
+        </div>
+        </article>
+        {% endfor %}
+        <hr>
+        <span class="d-block p-3 bg-info text-white">Higher than $10000</span>
+        {% for entry in entriesPrice %}
+        <article>
+            <span class="d-block p-2 bg-primary text-white">Inventory ID: {{ entry.inventory }}</span>
+            <div class="p-3 mb-2 bg-secondary text-white">
+            location:{{ entry.loc }}<br>
+            End User: {{ entry.endUser }}<br>
+            Description: {{ entry.description }}<br>
+            Brand: {{ entry.brand }}<br>
+            Unit Price: ${{ entry.unitPrice }}<br>
+            Acq. Date: {{ entry.acqDate }}<br>
+        </div>
+        </article>
+        {% endfor %}
+        <hr>
+        <span class="d-block p-3 bg-info text-white">More than 5 year</span>
+        {% for entry in entriesYear %}
+        <article>
+            <span class="d-block p-2 bg-primary text-white">Inventory ID: {{ entry.inventory }}</span>
+            <div class="p-3 mb-2 bg-secondary text-white">
+            location:{{ entry.loc }}<br>
+            End User: {{ entry.endUser }}<br>
+            Description: {{ entry.description }}<br>
+            Brand: {{ entry.brand }}<br>
+            Unit Price: ${{ entry.unitPrice }}<br>
+            Acq. Date: {{ entry.acqDate }}<br>
+        </div>
+        </article>
+        {% endfor %}
+        <hr>
+        <span class="d-block p-3 bg-info text-white">Summary</span>
+        <span class="d-block p-2 bg-primary text-white">Total number of item for each location:</span>
+        {% for entry in entriesGroupLoc %}
+        <article>
+            <div class="p-3 mb-2 bg-secondary text-white">
+            {{ entry.loc }} : {{  entry.total  }}<br>
+        </div>
+        </article>
+        {% endfor %}
+        <span class="d-block p-2 bg-primary text-white">Total number of item for each end user:</span>
+        {% for entry in entriesGroupUser %}
+        <article>
+            <div class="p-3 mb-2 bg-secondary text-white">
+            {{ entry.endUser }} : {{  entry.total  }}<br>
+        </div>
+        </article>
+        {% endfor %}
+    </body>
+</HTML>
